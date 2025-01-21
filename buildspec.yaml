@@ -6,16 +6,16 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 805392809179.dkr.ecr.ap-south-1.amazonaws.com
+      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 192045626265.dkr.ecr.ap-south-1.amazonaws.com
  
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t ecr-cicd .
-      - docker tag ecr-cicd:latest 805392809179.dkr.ecr.ap-south-1.amazonaws.com/ecr-cicd:1     
+      - docker build -t gitabnew .
+      - docker tag gitabnew:latest 192045626265.dkr.ecr.ap-south-1.amazonaws.com/gitabnew:latest     
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 805392809179.dkr.ecr.ap-south-1.amazonaws.com/ecr-cicd:1
+      - docker push 192045626265.dkr.ecr.ap-south-1.amazonaws.com/gitabnew:latest
